@@ -140,7 +140,7 @@ static int AppendExtensionToSpecBuf( const char *ext, char *specBuf, size_t spec
     
     if ( strlen(specBuf) > 0 )
     {
-        strncat( specBuf, SEP, specBufLen - strlen(specBuf) - 1 );
+        strncat_s( specBuf, NFD_MAX_STRLEN, SEP, specBufLen - strlen(specBuf) - 1 );
         specBufLen += strlen(SEP);
     }
 
@@ -149,7 +149,7 @@ static int AppendExtensionToSpecBuf( const char *ext, char *specBuf, size_t spec
     assert( bytesWritten == (int)(strlen(ext)+2) );
     _NFD_UNUSED(bytesWritten);
     
-    strncat( specBuf, extWildcard, specBufLen - strlen(specBuf) - 1 );
+    strncat_s( specBuf, NFD_MAX_STRLEN, extWildcard, specBufLen - strlen(specBuf) - 1 );
 
     return NFD_OKAY;
 }
